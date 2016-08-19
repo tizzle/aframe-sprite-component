@@ -1,51 +1,53 @@
-/* global AFRAME */
+AFRAME.registerComponent('sprite', {
+    
+    schema: {
+        src: {
+            default: ''
+        },
+        resize:{
+            default: '1 1 1'
+        }
+    },
 
-if (typeof AFRAME === 'undefined') {
-  throw new Error('Component attempted to register before AFRAME was available.');
-}
 
-/**
- * Example component for A-Frame.
- */
-AFRAME.registerComponent('example', {
-  schema: { },
+    init: function()
+    {
+        this.textureLoader = new THREE.TextureLoader();
+    },
 
-  /**
-   * Set if component needs multiple instancing.
-   */
-  multiple: false,
 
-  /**
-   * Called once when component is attached. Generally for initial setup.
-   */
-  init: function () { },
+    play: function()
+    {
+        console.log( this.data.src );
 
-  /**
-   * Called when component is attached and when component data changes.
-   * Generally modifies the entity based on the data.
-   */
-  update: function (oldData) { },
+        this.map = this.textureLoader.load(this.data.src);
 
-  /**
-   * Called when a component is removed (e.g., via removeAttribute).
-   * Generally undoes all modifications to the entity.
-   */
-  remove: function () { },
+        this.material = new THREE.SpriteMaterial({
+            map: this.map
+        });
 
-  /**
-   * Called on each scene tick.
-   */
-  // tick: function (t) { },
+        this.sprite = new THREE.Sprite(this.material);
 
-  /**
-   * Called when entity pauses.
-   * Use to stop or remove any dynamic or background behavior such as events.
-   */
-  pause: function () { },
+        resizeData = this.data.resize.split(' ');
+        this.sprite.scale.set( resizeData[0], resizeData[1], resizeData[2] );
 
-  /**
-   * Called when entity resumes.
-   * Use to continue or add any dynamic or background behavior such as events.
-   */
-  play: function () { }
+        this.el.setObject3D('mesh', this.sprite);
+    },
+
+
+    remove: function() {
+        console.log('remove sprite');
+        if (this.mesh) this.el.removeObject3D('mesh');
+    }
+
+});
+
+AFRAME.registerPrimitive('a-sprite', {
+    defaultComponents: {
+        sprite: {}
+    },
+    mappings: {
+        src: 'sprite.src',
+        resize: 'sprite.resize'
+    }
 });

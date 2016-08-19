@@ -1,29 +1,6 @@
-## aframe-component-boilerplate
+## aframe-sprite-component
 
-> This is not at all means required for writing an A-Frame component. It is intended for publishing and sharing a component for the community to re-use.
-
-Boilerplate for sharing [A-Frame](https://aframe.io) [components](https://aframe.io/docs/core/component.html):
-
-1. `npm install && npm run unboil` to rename and trim stuff. Don't forget to **unboil**.
-2. [Write your component](http://ngokevin.com/blog/aframe-component).
-3. Build examples (`npm run dev` to watch for changes to build example bundles).
-4. `npm publish` and commit the `dist/` files.
-5. `npm run ghpages` to share with people.
-6. Share on [Slack](https://aframevr-slack.herokuapp.com/) and [awesome-aframe](https://github.com/aframevr/awesome-aframe)!
-
-Examples:
-
-- [aframe-layout-component](https://github.com/ngokevin/aframe-layout-component)
-- [aframe-text-component](https://github.com/ngokevin/aframe-text-component)
-- [aframe-extrude-and-lathe](https://github.com/JosePedroDias/aframe-extrude-and-lathe)
-- [aframe-obj-loader-component](https://github.com/donmccurdy/aframe-obj-loader-component)
-- [aframe-physics-component](https://github.com/ngokevin/aframe-physics-component)
-- [aframe-template-component](https://github.com/ngokevin/aframe-template-component)
-
---trim--
-## aframe-example-component
-
-A example component for [A-Frame](https://aframe.io).
+An implementation of the Sprite primitive from ThreeJS – a bitmap image always facing the camera – for [A-Frame](https://aframe.io).
 
 ### API
 
@@ -39,15 +16,26 @@ Install and use by directly including the [browser files](dist):
 
 ```html
 <head>
-  <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
-  <script src="https://rawgit.com/ngokevin/aframe-component-boilerplate/master/dist/aframe-example-component.min.js"></script>
+  <title>A-Frame using a Sprite</title>
+  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/tizzle/aframe-sprite-component/master/dist/aframe-sprite-component.min.js"></script>
 </head>
 
 <body>
-  <a-scene>
-    <a-entity example="exampleProp: exampleVal"></a-entity>
-  </a-scene>
+
+    <a-scene>
+        <a-assets>
+            <img id="hotspotimage" src="hotspot.png">
+        </a-assets>
+
+        <a-entity camera position="0 0 5"></a-entity>
+
+        <a-sprite position="0 0 0" resize="1 1 1" src="hotspot.png"></a-sprite>
+
+        <a-sky color="#AADDF0"></a-sky>
+
+    </a-scene>
+
 </body>
 ```
 
@@ -56,12 +44,12 @@ Install and use by directly including the [browser files](dist):
 Install via npm:
 
 ```bash
-npm install aframe-example-component
+npm install aframe-sprite-component
 ```
 
 Then register and use.
 
 ```js
 require('aframe');
-require('aframe-example-component');
+require('aframe-sprite-component');
 ```

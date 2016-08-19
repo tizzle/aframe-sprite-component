@@ -5,8 +5,17 @@
   </head>
   <body>
     <a-scene>
-      <a-assets></a-assets>
-      <a-entity geometry="primitive: box" material="color: #C03546"></a-entity>
+      <a-assets>
+          <img id="hotspotimage" src="hotspot.png">
+      </a-assets>
+
+      <a-entity camera position="0 0 5"></a-entity>
+
+      <a-sprite position="0 0 0" resize="1 1 1" src="hotspot.png"></a-sprite>
+
+      <!-- Sky -->
+      <a-sky color="#AADDF0"></a-sky>
+
     </a-scene>
   </body>
 </html>
