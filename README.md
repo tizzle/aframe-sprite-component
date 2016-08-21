@@ -6,7 +6,9 @@ An implementation of the Sprite primitive from ThreeJS – a bitmap image always
 
 | Property | Description | Default Value |
 | -------- | ----------- | ------------- |
-|          |             |               |
+| src | String – the name of the image to use in the SpriteMaterial | '' |
+| resize | String – resize vector to scale the Sprite | '1 1 1' |
+
 
 ### Installation
 
@@ -38,4 +40,3 @@ Install and use by directly including the [browser files](dist):
 
 </body>
 ```
-
