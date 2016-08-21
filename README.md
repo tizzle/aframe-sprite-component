@@ -40,3 +40,18 @@ Install and use by directly including the [browser files](dist):
 
 </body>
 ```
+
+#### npm
+
+Install via npm:
+
+```bash
+npm install aframe-example-component-2
+```
+
+Then register and use.
+
+```js
+require('aframe');
+require('aframe-orbit-controls-component');
+```
