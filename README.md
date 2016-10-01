@@ -46,12 +46,12 @@ Install and use by directly including the [browser files](dist):
 Install via npm:
 
 ```bash
-npm install aframe-example-component-2
+npm install aframe-sprite-component
 ```
 
 Then register and use.
 
 ```js
 require('aframe');
-require('aframe-orbit-controls-component');
+require('aframe-sprite-component');
 ```
