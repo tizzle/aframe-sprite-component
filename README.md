@@ -2,6 +2,8 @@
 
 An implementation of the Sprite primitive from ThreeJS – a bitmap image always facing the camera – for [A-Frame](https://aframe.io).
 
+Have a look at the [examples](https://tizzle.github.io/aframe-sprite-component/)
+
 ### API
 
 | Property | Description | Default Value |
