@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>A-Frame Example Component - Basic</title>
+    <script src="../build.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+          <img id="hotspotimage" src="hotspot.png">
+      </a-assets>
+
+      <a-entity position="0 0 5">
+        <a-camera look-controls wasd-controls></a-camera>
+      </a-entity>
+
+      <a-box color="tomato" depth="2" height="4" width="0.5" position="-3 0 0"></a-box>
+      <a-box position="-2 0 0" color="grey"></a-box>
+
+      <a-box position="2 0 0" color="#AADDF0"></a-box>
+      <a-sprite position="0 0 0" resize="1 1 1" src="hotspot.png"></a-sprite>
+
+      <!-- Sky -->
+      <a-sky color="#AADDF0"></a-sky>
+
+    </a-scene>
+  </body>
+</html>
