@@ -52,7 +52,10 @@
 	        },
 	        resize:{
 	            default: '1 1 1'
-	        }
+	        },
+			alpha : {
+				default : 0.4
+			},
 	    },
 
 
@@ -69,7 +72,9 @@
 	        this.map = this.textureLoader.load(this.data.src);
 
 	        this.material = new THREE.SpriteMaterial({
-	            map: this.map
+	            map: this.map,
+				transparent  : true, 
+				alphaTest : this.data.alpha
 	        });
 
 	        this.sprite = new THREE.Sprite(this.material);
